@@ -195,3 +195,12 @@ h1 span {
     text-align: center;
     visibility: hidden;
 }
+
+.mensajePulsar{
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    visibility: hidden;
+}

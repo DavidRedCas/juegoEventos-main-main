@@ -3,7 +3,7 @@ function seleccionarPreguntasAleatorias(preguntas, cantidad) {
     return preguntasBarajadas.slice(0, cantidad);
 }
 
-var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 5);
+var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 2);
 
 var contenedorPregunta = document.querySelectorAll(".contenedorPregunta");
 var textoPregunta = document.getElementById("pregunta");
@@ -111,6 +111,8 @@ function finalizarQuiz() {
                         }
                         iniciarEventosTeclado();
                     }, 800);
+                    let mensajePulsar = document.querySelector(".mensajePulsar");
+                    mensajePulsar.style.visibility = "visible";
                 }, 3000);
             }, 1500);
         }, 200 * index);
@@ -137,6 +139,8 @@ function iniciarEventosTeclado() {
 }
 
 function voltearCarta(carta, indice) {
+    let mensajePulsar = document.querySelector(".mensajePulsar");
+    mensajePulsar.style.visibility = "hidden";
     if (carta.style.transform !== 'rotateY(180deg)') {
         carta.style.transform = 'rotateY(180deg) translate(0px, 250px) scale(4)';
         setTimeout(function() {
