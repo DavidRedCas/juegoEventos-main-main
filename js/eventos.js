@@ -3,7 +3,7 @@ function seleccionarPreguntasAleatorias(preguntas, cantidad) {
     return preguntasBarajadas.slice(0, cantidad);
 }
 
-var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 1);
+var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 5);
 
 var contenedorPregunta = document.querySelectorAll(".contenedorPregunta");
 var textoPregunta = document.getElementById("pregunta");
@@ -53,7 +53,6 @@ function cargarPregunta(indice) {
                     var carta = document.querySelectorAll(".carta")[indice];
                     carta.classList.add(esCorrecta ? "correcta" : "incorrecta");
                     var tiempoDeEspera = esCorrecta ? 1200 : 3400;
-
                     setTimeout(function () {
                         cargarPregunta(indice + 1);
                     }, tiempoDeEspera);
@@ -120,7 +119,6 @@ function finalizarQuiz() {
         const j = Math.floor(Math.random() * (i + 1));
         [resultados[i], resultados[j]] = [resultados[j], resultados[i]];
     }
-    console.log(resultados);
 }
 
 function controlarTecla(event) {
@@ -144,19 +142,14 @@ function voltearCarta(carta, indice) {
         setTimeout(function() {
             carta.querySelector(".numero-carta").style.visibility = "hidden";
             carta.classList.remove('gris');
+            let ganador = document.querySelector(".ganador");
+            let perdedor = document.querySelector(".perdedor");
             
             if (resultados[indice] === 'acertada') {
                 carta.style.backgroundColor = 'rgb(65, 220, 65)';
-            } else {
-                carta.style.backgroundColor = 'rgb(245, 50, 50)';
-            }
-
-            let contenido = carta.querySelector(".contenido");
-            let ganador = document.querySelector(".ganador");
-            let perdedor = document.querySelector(".perdedor");
-            if (resultados[indice] === 'acertada') {
                 ganador.style.visibility = "visible";
             } else {
+                carta.style.backgroundColor = 'rgb(245, 50, 50)';
                 perdedor.style.visibility = "visible";
             }
         }, 500);
