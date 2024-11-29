@@ -3,7 +3,7 @@ function seleccionarPreguntasAleatorias(preguntas, cantidad) {
     return preguntasBarajadas.slice(0, cantidad);
 }
 
-var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 2);
+var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 5);
 
 var contenedorPregunta = document.querySelectorAll(".contenedorPregunta");
 var textoPregunta = document.getElementById("pregunta");
