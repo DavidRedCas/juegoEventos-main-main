@@ -203,4 +203,13 @@ h1 span {
     font-weight: bold;
     text-align: center;
     visibility: hidden;
+    animation: parpadeoMensaje 0.8s ease-in-out infinite;
+}
+@keyframes parpadeoMensaje {
+    0%, 100% {
+        opacity: 20%;
+    }
+    50% {
+        opacity: 100%;
+    }
 }

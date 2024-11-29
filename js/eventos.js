@@ -165,10 +165,10 @@ cargarPregunta(preguntaActual);
 
 //animacion titulo
 const h1 = document.querySelector("h1");
-const originalColor = "#212427";
-const waveInterval = 10000;
+const colorOriginal = "#212427";
+const intervalo = 10000;
 
-function waveEffect() {
+function efectoTitulo() {
     const letters = h1.textContent.split("");
     h1.innerHTML = "";
 
@@ -182,8 +182,8 @@ function waveEffect() {
         }, index * 100);
 
         setTimeout(() => {
-            span.style.color = originalColor;
+            span.style.color = colorOriginal;
         }, index * 100 + 3000);
     });
 }
-setInterval(waveEffect, waveInterval);
+setInterval(efectoTitulo, intervalo);
