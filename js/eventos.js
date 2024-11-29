@@ -100,10 +100,10 @@ function finalizarQuiz() {
                 }, 500);
                 setTimeout(() => {
                     carta.style.transition = "transform 1s ease-in-out";
-                    carta.style.transform = `translate(0px, 250px) scale(3.2) translateX(${margenIzquierda}px)`;
-                }, 1500);
+                    carta.style.transform = `translate(0px, 450px) scale(3.2) translateX(${margenIzquierda + index * -12}px)`;
+                }, 1300);
                 setTimeout(() => {
-                    carta.style.transform = `translate(0px, 250px) scale(3.2) translateX(${margenIzquierda + index * distanciaEntreCartas}px) rotateY(360deg)`;
+                    carta.style.transform = `translate(0px, 450px) scale(3.2) translateX(${margenIzquierda + index * distanciaEntreCartas}px) rotateY(360deg)`;
                     setTimeout(() => {
                         const numero = carta.querySelector("span");
                         if (numero) {
@@ -111,7 +111,7 @@ function finalizarQuiz() {
                         }
                         iniciarEventosTeclado();
                     }, 800);
-                }, 2500);
+                }, 3000);
             }, 1500);
         }, 200 * index);
     });
@@ -139,7 +139,7 @@ function iniciarEventosTeclado() {
 
 function voltearCarta(carta, indice) {
     if (carta.style.transform !== 'rotateY(180deg)') {
-        carta.style.transform = 'rotateY(180deg) translate(0px, 80px) scale(4)';
+        carta.style.transform = 'rotateY(180deg) translate(0px, 250px) scale(4)';
         setTimeout(function() {
             carta.querySelector(".numero-carta").style.visibility = "hidden";
             carta.classList.remove('gris');

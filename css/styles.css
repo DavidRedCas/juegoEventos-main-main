@@ -34,7 +34,6 @@ h1 span {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-left: 50px;
 }
 
 .carta {
@@ -179,18 +178,18 @@ h1 span {
 
 .ganador{
     color: rgb(65, 220, 65);
+    margin-top: 0px;
     font-size: 45px;
     font-weight: bold;
     text-align: center;
-    margin-top: 40px;
     visibility: hidden;
 }
 
 .perdedor{
     color: rgb(245, 50, 50);
+    margin-top: 0px;
     font-size: 45px;
     font-weight: bold;
     text-align: center;
-    margin-top: 40px;
     visibility: hidden;
 }
