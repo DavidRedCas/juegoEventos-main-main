@@ -3,12 +3,16 @@ function seleccionarPreguntasAleatorias(preguntas, cantidad) {
     return preguntasBarajadas.slice(0, cantidad);
 }
 
-var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 1);
+var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 3);
 
 var contenedorPregunta = document.querySelectorAll(".contenedorPregunta");
 var textoPregunta = document.getElementById("pregunta");
 var contenedorOpciones = document.getElementById("opciones");
 var preguntaActual = 0;
+
+let resultados = [];
+let aciertos = 0;
+let fallos = 0;
 
 function cargarPregunta(indice) {
     if (indice < preguntasSeleccionadas.length) {
@@ -61,10 +65,6 @@ function cargarPregunta(indice) {
     }
 }
 
-let resultados = [];
-let aciertos = 0;
-let fallos = 0;
-
 let clickFinalizado = false;
 
 function finalizarQuiz() {
@@ -115,6 +115,11 @@ function finalizarQuiz() {
             }, 1500);
         }, 200 * index);
     });
+    for (let i = resultados.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [resultados[i], resultados[j]] = [resultados[j], resultados[i]];
+    }
+    console.log(resultados);
 }
 
 function manejarTecla(event) {
@@ -132,10 +137,9 @@ function iniciarEventosTeclado() {
     document.addEventListener('keydown', manejarTecla);
 }
 
-
 function voltearCarta(carta, indice) {
     if (carta.style.transform !== 'rotateY(180deg)') {
-        carta.style.transform = 'rotateY(180deg) translate(0px, 100px) scale(3.5)';
+        carta.style.transform = 'rotateY(180deg) translate(0px, 80px) scale(4)';
         setTimeout(function() {
             carta.querySelector(".numero-carta").style.visibility = "hidden";
             carta.classList.remove('gris');
@@ -159,9 +163,6 @@ function voltearCarta(carta, indice) {
 }
 
 cargarPregunta(preguntaActual);
-
-
-
 
 
 //animacion titulo
