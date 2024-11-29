@@ -1,0 +1,178 @@
+body {
+    font-family: sans-serif;
+    background-color: whitesmoke;
+}
+
+p {
+    font-size: 18px;
+    color: #212427;
+}
+
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 50px;
+    color: #212427;
+    text-align: center;
+    margin-top: 40px;
+}
+
+h1 span {
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.contenedor {
+    margin: 50px auto;
+    width: 75%;
+    height: 640px;
+    background-color: rgb(210, 210, 210);
+    border-radius: 25px;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.4);
+}
+
+.contenedorCartas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.carta {
+    background-color: rgb(160, 160, 160);
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    margin: 50px 6px;
+    transition: transform 0.5s ease, width 0.5s, height 0.5s;
+}
+
+.contenedorPregunta {
+    position: relative;
+    margin: auto;
+    width: 75%;
+    padding: 0px 20px;
+    max-width: 1100px;
+    height: 165px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+#pregunta {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#opciones {
+    justify-items: center;
+    margin: 50px 15% 0px 15%;
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 15px;
+}
+
+#opciones p {
+    width: 75%;
+    max-width: 400px;
+    height: 75px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    transition: 0.15s;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+#opciones p:hover {
+    background-color: rgb(222, 222, 222);
+    transform: scale(1.05);
+}
+
+#opciones p:active {
+    transform: scale(0.95);
+    transition-duration: 0.15s;
+}
+
+.opcion {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+@keyframes parpadeo {
+    0%, 100% {
+        background-color: rgb(222, 222, 222);
+    }
+    50% {
+        background-color: rgb(245, 245, 70);
+    }
+}
+
+@keyframes parpadeoVerde {
+    0%, 100% {
+        background-color: whitesmoke;
+    }
+    50% {
+        background-color: rgb(89, 215, 89);
+    }
+}
+
+.parpadeando {
+    animation: parpadeo 0.8s ease-in-out 2;
+}
+
+.correcta {
+    background-color: rgb(65, 220, 65) !important;
+}
+
+.incorrecta {
+    background-color: rgb(245, 50, 50) !important;
+}
+
+.parpadeando-correcta {
+    animation: parpadeoVerde 0.75s ease-in-out 3;
+    animation-delay: 0.5s;
+}
+
+.carta {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    margin: 50px 6px;
+    transition: transform 0.5s ease, background-color 0.2s ease-in;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.numero-carta {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.carta span {
+    display: none;
+}
+
+.carta span.visible {
+    display: flex;
+}
+
+.carta.gris {
+    background-color: rgb(160, 160, 160) !important;
+}
+
+.carta.volteada {
+    transform: rotateY(180deg);
+}
