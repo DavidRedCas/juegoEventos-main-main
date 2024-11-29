@@ -71,9 +71,10 @@ function finalizarQuiz() {
     const cartas = document.querySelectorAll(".carta");
     cartas.forEach(carta => {
         carta.style.pointerEvents = "none";
+        carta.style.boxShadow = "2px 2px rgba(120, 120, 120, 1)";
     });
 
-    document.removeEventListener('keydown', manejarTecla);
+    document.removeEventListener('keydown', controlarTecla);
 
     contenedorPregunta[0].style.display = "none";
     contenedorOpciones.style.display = "none";
@@ -100,10 +101,10 @@ function finalizarQuiz() {
                 }, 500);
                 setTimeout(() => {
                     carta.style.transition = "transform 1s ease-in-out";
-                    carta.style.transform = `translate(0px, 450px) scale(3.2) translateX(${margenIzquierda + index * -12}px)`;
+                    carta.style.transform = `translate(0px, 450px) scale(3.2) translateX(${margenIzquierda + index * -12}px) rotateY(180deg)`;
                 }, 1300);
                 setTimeout(() => {
-                    carta.style.transform = `translate(0px, 450px) scale(3.2) translateX(${margenIzquierda + index * distanciaEntreCartas}px) rotateY(360deg)`;
+                    carta.style.transform = `translate(0px, 450px) scale(3.2) translateX(${margenIzquierda + index * distanciaEntreCartas}px)`;
                     setTimeout(() => {
                         const numero = carta.querySelector("span");
                         if (numero) {
@@ -122,7 +123,7 @@ function finalizarQuiz() {
     console.log(resultados);
 }
 
-function manejarTecla(event) {
+function controlarTecla(event) {
     if (event.key >= 1 && event.key <= 5 && !clickFinalizado) {
         let numeroCarta = parseInt(event.key) - 1;
         let cartaSeleccionada = document.querySelectorAll(".carta")[numeroCarta];
@@ -134,7 +135,7 @@ function manejarTecla(event) {
 }
 
 function iniciarEventosTeclado() {
-    document.addEventListener('keydown', manejarTecla);
+    document.addEventListener('keydown', controlarTecla);
 }
 
 function voltearCarta(carta, indice) {
@@ -157,7 +158,7 @@ function voltearCarta(carta, indice) {
             //    contenido.textContent = "Correcta";
                 ganador.style.visibility = "visible";
             } else {
-                contenido.textContent = "Incorrecta";
+            //    contenido.textContent = "Incorrecta";
                 perdedor.style.visibility = "visible";
             }
 
