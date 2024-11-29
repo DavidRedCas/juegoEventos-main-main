@@ -3,7 +3,7 @@ function seleccionarPreguntasAleatorias(preguntas, cantidad) {
     return preguntasBarajadas.slice(0, cantidad);
 }
 
-var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 3);
+var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 1);
 
 var contenedorPregunta = document.querySelectorAll(".contenedorPregunta");
 var textoPregunta = document.getElementById("pregunta");
@@ -61,7 +61,7 @@ function cargarPregunta(indice) {
             });
         }
     } else {
-        setTimeout(finalizarQuiz, 1000);
+        setTimeout(finalizarQuiz, 500);
     }
 }
 
@@ -151,10 +151,14 @@ function voltearCarta(carta, indice) {
             }
 
             let contenido = carta.querySelector(".contenido");
+            let ganador = document.querySelector(".ganador");
+            let perdedor = document.querySelector(".perdedor");
             if (resultados[indice] === 'acertada') {
-                contenido.textContent = "Correcta";
+            //    contenido.textContent = "Correcta";
+                ganador.style.visibility = "visible";
             } else {
                 contenido.textContent = "Incorrecta";
+                perdedor.style.visibility = "visible";
             }
 
             carta.querySelector(".numero-carta").style.visibility = "visible";
