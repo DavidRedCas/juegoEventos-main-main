@@ -155,14 +155,10 @@ function voltearCarta(carta, indice) {
             let ganador = document.querySelector(".ganador");
             let perdedor = document.querySelector(".perdedor");
             if (resultados[indice] === 'acertada') {
-            //    contenido.textContent = "Correcta";
                 ganador.style.visibility = "visible";
             } else {
-            //    contenido.textContent = "Incorrecta";
                 perdedor.style.visibility = "visible";
             }
-
-            carta.querySelector(".numero-carta").style.visibility = "visible";
         }, 500);
     }
 }

@@ -179,8 +179,8 @@ h1 span {
 .ganador{
     color: rgb(65, 220, 65);
     font-family: 'Courier New', Courier, monospace;
-    margin-top: 0px;
-    font-size: 45px;
+    margin-top: -50px;
+    font-size: 55px;
     font-weight: bolder;
     text-align: center;
     visibility: hidden;
@@ -189,8 +189,8 @@ h1 span {
 .perdedor{
     color: rgb(245, 50, 50);
     font-family: 'Courier New', Courier, monospace;
-    margin-top: 0px;
-    font-size: 45px;
+    margin-top: -50px;
+    font-size: 55px;
     font-weight: bold;
     text-align: center;
     visibility: hidden;
