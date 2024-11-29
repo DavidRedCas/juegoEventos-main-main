@@ -3,7 +3,7 @@ function seleccionarPreguntasAleatorias(preguntas, cantidad) {
     return preguntasBarajadas.slice(0, cantidad);
 }
 
-var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 5);
+var preguntasSeleccionadas = seleccionarPreguntasAleatorias(preguntas, 1);
 
 var contenedorPregunta = document.querySelectorAll(".contenedorPregunta");
 var textoPregunta = document.getElementById("pregunta");
@@ -78,7 +78,7 @@ function finalizarQuiz() {
     contenedorPregunta[0].style.display = "none";
     contenedorOpciones.style.display = "none";
     const numCartas = cartas.length;
-    const distanciaEntreCartas = 40;
+    const distanciaEntreCartas = 30;
     const espacioTotal = (numCartas - 1) * distanciaEntreCartas;
     const margenIzquierda = -(espacioTotal / 2);
 
@@ -101,7 +101,7 @@ function finalizarQuiz() {
                 setTimeout(() => {
                     carta.style.transition = "transform 1s ease-in-out";
                     carta.style.transform = `translate(0px, 250px) scale(3.2) translateX(${margenIzquierda}px)`;
-                }, 2000);
+                }, 1500);
                 setTimeout(() => {
                     carta.style.transform = `translate(0px, 250px) scale(3.2) translateX(${margenIzquierda + index * distanciaEntreCartas}px) rotateY(360deg)`;
                     setTimeout(() => {
@@ -111,8 +111,8 @@ function finalizarQuiz() {
                         }
                         iniciarEventosTeclado();
                     }, 800);
-                }, 3000);
-            }, 2000);
+                }, 2500);
+            }, 1500);
         }, 200 * index);
     });
 }
